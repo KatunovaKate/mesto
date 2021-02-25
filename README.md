@@ -4,4 +4,4 @@
 
 Использованы гриды, флексбоксы. Применяется JavaScript для интерактивных элементов. 
 
-Посмотреть проект можно по ссылке: https://github.com/KatunovaKate/mesto.git
+Посмотреть проект можно по ссылке: https://katunovakate.github.io/mesto/
