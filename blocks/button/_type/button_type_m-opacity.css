@@ -1,0 +1,5 @@
+.button_type_m-opacity:hover {
+    opacity: 0.6;
+    transition: 0.35s;
+    cursor: pointer;
+}

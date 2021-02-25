@@ -1,0 +1,5 @@
+.button_type_l-opacity:hover {
+    opacity: 0.5;
+    transition: 0.35s;
+    cursor: pointer;
+}
