@@ -1,4 +1,5 @@
 .root {
+    margin: auto;
     background-color: black;
     font-family: 'Inter', 'Arial', sans-serif;
     -moz-osx-font-smoothing: grayscale;

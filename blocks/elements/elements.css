@@ -1,9 +1,4 @@
 .elements {
-    display: grid;
-    justify-content: center;
-    row-gap: 20px;
-    column-gap: 17px;
-    grid-template-columns: repeat(auto-fill, 282px);
     padding: 0 27px;
 }
 
@@ -11,4 +6,4 @@
     .elements {
         padding: 0 19px;
     }
-  } 
+  }

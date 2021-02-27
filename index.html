@@ -6,84 +6,85 @@
   <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
-<body class="root margin margin_type_auto">
+<body class="root">
   <header class="header">
-    <a class="logo" target="_blank" href="#"><img src="images/logo.svg" alt="Логотип"></a>
+    <a class="logo" target="_blank" href="#"></a>
   </header>
   <main>
-    <section class="profile margin margin_type_middle">
+    <section class="profile">
       <div class="profile__info">
         <img src="images/avatar.png" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
         <div class="profile__user-info">
-          <h1 class="profile__user-name">Жак-Ив Кусто
-              <button class="profile__edit-button button button_type_m-opacity"></button>
-          </h1>
+          <div class="profile__name-edit">
+            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button button button_type_m-opacity"></button>
+          </div>
           <p class="profile__user-description">Исследователь океана</p>
         </div>
       </div>
-      <form>
-        <button class="profile__add-button button button_type_m-opacity"></button>
-      </form>
+      <button type="button" class="profile__add-button button button_type_m-opacity"></button>
     </section>
    <section class="elements">
-      <article class="element">
+     <ul class="elements__list">
+      <li class="element">
         <img src="images/1-karacheev.png" class="element__image" alt="Замок в Карачаевске">
         <div class="element__info">
           <h2 class="element__title">Карачаевск</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
-      <article class="element">
+      </li>
+      <li class="element">
         <img src="images/2-elbrus.png" class="element__image" alt="Пейзаж, горы">
         <div class="element__info">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
-      <article class="element">
+      </li>
+      <li class="element">
         <img src="images/3-dombai.png" class="element__image" alt="Фоторгафия гор">
         <div class="element__info">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
-      <article class="element">
+      </li>
+      <li class="element">
         <img src="images/2-elbrus.png" class="element__image" alt="Пейзаж, горы">
         <div class="element__info">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
-      <article class="element">
+      </li>
+      <li class="element">
         <img src="images/3-dombai.png" class="element__image" alt="Фоторгафия гор">
         <div class="element__info">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
-      <article class="element">
+      </li>
+      <li class="element">
         <img src="images/1-karacheev.png" class="element__image" alt="Замок в Карачаевске">
         <div class="element__info">
           <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button class="element__like-button button button_type_l-opacity"></button>
+          <button type="button" class="element__like-button button button_type_l-opacity"></button>
         </div>
-      </article>
+      </li>
+    </ul>
     </section>
-    <section class="popup">
-      <div class="popup__container">
-        <button class="popup__close-button button button_type_m-opacity"></button>
-        <h1 class="popup__title">Редактировать профиль</h1>
-        <form class="popup__form">
-          <input value="Жак-Ив Кусто" class="popup__form-name">
-          <input value="Исследователь океана" class="popup__form-description">
-        </form>
-        <button class="popup__save-button button button_type_s-opacity">Сохранить</button>
-      </div>
-      </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <button class="popup__close-button button button_type_m-opacity" type="button"></button>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form" method="GET" name="edit-profile">
+        <input placeholder="Имя" class="popup__form-name" type="text" name="user-name">
+        <input placeholder="О себе" class="popup__form-description" type="text" name="description">
+        <button class="popup__save-button button button_type_s-opacity" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
   <script src="scripts/index.js"></script>
 </body>
 </html>

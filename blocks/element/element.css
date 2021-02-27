@@ -1,6 +1,6 @@
 .element {
     background-color: white;
     width: 282px;
-    height: fit-content;
-    border-radius: 5%;
+    min-height: 361px;
+    border-radius: 10px;
 }
