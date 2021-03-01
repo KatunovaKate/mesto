@@ -23,7 +23,7 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     userName.textContent = formUserName.value;
     description.textContent = formDescription.value;
-    closePopup()
+    closePopup();
 }
 formPopup.addEventListener('submit', formSubmitHandler);
 
