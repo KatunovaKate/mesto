@@ -10,7 +10,7 @@
   <header class="header">
     <a class="logo" target="_blank" href="#"></a>
   </header>
-  <main>
+  <main class="main">
     <section class="profile">
       <div class="profile__info">
         <img src="./images/avatar.png" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
@@ -25,66 +25,51 @@
       <button type="button" class="profile__add-button button button_type_m-opacity"></button>
     </section>
    <section class="elements">
-     <ul class="elements__list">
-      <li class="element">
-        <img src="./images/1-karacheev.png" class="element__image" alt="Замок в Карачаевске">
-        <div class="element__info">
-          <h2 class="element__title">Карачаевск</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img src="./images/2-elbrus.png" class="element__image" alt="Пейзаж, горы">
-        <div class="element__info">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img src="./images/3-dombai.png" class="element__image" alt="Фоторгафия гор">
-        <div class="element__info">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img src="./images/2-elbrus.png" class="element__image" alt="Пейзаж, горы">
-        <div class="element__info">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img src="./images/3-dombai.png" class="element__image" alt="Фоторгафия гор">
-        <div class="element__info">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-      <li class="element">
-        <img src="./images/1-karacheev.png" class="element__image" alt="Замок в Карачаевске">
-        <div class="element__info">
-          <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button type="button" class="element__like-button button button_type_l-opacity"></button>
-        </div>
-      </li>
-    </ul>
+     <ul class="elements__list"></ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_class_edit">
     <div class="popup__container">
-      <button class="popup__close-button button button_type_m-opacity" type="button"></button>
+      <button class="popup__close-button popup__close-button_class_edit button button_type_m-opacity" type="button"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__form" method="POST" name="edit-profile">
-        <input placeholder="Имя" class="popup__form-name" type="text" name="user-name">
-        <input placeholder="О себе" class="popup__form-description" type="text" name="description">
-        <button class="popup__save-button button button_type_s-opacity" type="submit">Сохранить</button>
+      <form class="popup__form popup__form_class_edit" method="POST" name="edit-profile">
+        <input placeholder="Имя" class="popup__form-name popup__form-name_class_edit" type="text" name="user-name">
+        <input placeholder="О себе" class="popup__form-description popup__form-description_class_edit" type="text" name="description">
+        <button class="popup__save-button popup__save-button_class_edit button button_type_s-opacity" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
+  <div class="popup popup_class_add">
+    <div class="popup__container">
+      <button class="popup__close-button popup__close-button_class_add button button_type_m-opacity" type="button"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form class="popup__form popup__form_class_add" method="POST" name="add-image">
+        <input placeholder="Название" class="popup__form-name popup__form-name_class_add" type="text" name="title-of-image">
+        <input placeholder="Ссылка на картинку" class="popup__form-description popup__form-description_class_add" type="text" name="image">
+        <button class="popup__save-button button button_type_s-opacity" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_class_image-show">
+    <figure class="popup__full-image">
+    <button class="popup__close-button popup__close-button_class_image-show button button_type_m-opacity" type="button"></button>
+    <img class="popup__image" src="" alt="">
+    <figcaption class="popup__image-text"></figcaption>
+    </figure>
+  </div>
+  <template class="template">
+  <li class="element">
+    <div class="element__image"></div>
+    <button type="button" class="element__delete-button button button_type_l-opacity"></button>
+    <div class="element__info">
+      <h2 class="element__title"></h2>
+      <button type="button" class="element__like-button button button_type_l-opacity"></button>
+    </div>
+  </li>
+</template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
