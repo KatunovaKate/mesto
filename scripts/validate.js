@@ -51,7 +51,6 @@ const setIventListerners = (formElement, { inputSelector, submitButtonSelector, 
 }
 
 const enableValidation = ({ formSelector, ...restConfig }) => {
-
     const formList = Array.from(document.querySelectorAll(formSelector));
     formList.forEach((formElement) => {
         setIventListerners(formElement, restConfig);

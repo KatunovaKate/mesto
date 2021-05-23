@@ -27,13 +27,15 @@ const templateElement = document.querySelector(".template");
 const container = document.querySelector(".elements__list");
 const deleteButton = document.querySelector(".element__delete-button");
 
-const closeEsc = (evt) => {
-  if (evt.keyCode === 27) {    
-    popups.forEach((popupElement) => {
-      popupElement.classList.remove("popup_opened")
-    })
-  }
-}
+const closeEsc = (evt) => { 
+  if (evt.key === "Escape") { 
+    popups.forEach((popupElement) => { 
+      if (popupElement.classList.contains("popup_opened")) {
+        closePopup(popupElement);
+      }
+    })      
+  } 
+} 
 
 function openPopup(popups) {
   popups.classList.add("popup_opened");
@@ -58,7 +60,7 @@ closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
 closeButtonShow.addEventListener("click", () => closePopup(popupShow));
 
 popups.forEach((popupElement) => {
-  popupElement.addEventListener("click", function (evt) {
+  popupElement.addEventListener("mousedown", function (evt) {
     if (evt.target === evt.currentTarget) {
       closePopup(popupElement)
     }
@@ -83,6 +85,8 @@ function handleCardSubmit(evt) {
   container.prepend(newElement);
   formImageTitle.value = '';
   formLink.value ='';
+  const addButton = document.querySelector('.popup__save-button_class_add');
+  addButton.classList.add('popup__save-button_type_disable');
   closePopup(popupAdd);
 }
 
