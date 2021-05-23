@@ -29,21 +29,18 @@ const deleteButton = document.querySelector(".element__delete-button");
 
 const closeEsc = (evt) => { 
   if (evt.key === "Escape") { 
-    popups.forEach((popupElement) => { 
-      if (popupElement.classList.contains("popup_opened")) {
-        closePopup(popupElement);
-      }
-    })      
+    const popupElement = document.querySelector('.popup_opened');
+    closePopup(popupElement);
   } 
 } 
 
-function openPopup(popups) {
-  popups.classList.add("popup_opened");
+function openPopup(popupElement) {
+  popupElement.classList.add("popup_opened");
   document.addEventListener("keydown", closeEsc);
 }
 
-function closePopup(popups) {
-  popups.classList.remove("popup_opened");
+function closePopup(popupElement) {
+  popupElement.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeEsc);
 }
 
