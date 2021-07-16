@@ -1,5 +1,5 @@
 //Экземпляр класса Card создаётся для каждой карточки. Класс Card должен:
-import  { closePopup, openPopup, closeButtonShow, popupImage, popupName, popupShow } from './index.js'
+import  { closePopup, openPopup, closeButtonShow, popupImage, popupName, popupShow } from './utils.js'
 export default class Card {
     //Принимать в конструктор ссылки на изображение и текст;
     //Принимать в конструктор селектор для template-элемента с шаблоном разметки;
@@ -19,15 +19,15 @@ export default class Card {
     _openImagePopup() {
       popupImage.src = this._link;
       popupName.textContent = this._name;
-      popupName.alt = this._name;
+      popupImage.alt = this._name;
       openPopup(popupShow);
     }
   
     //функция удаления карточки
     _deleteCard(evt) {
       const target = evt.target;
-      const currentElement = target.closest(".element");
-      currentElement.remove();
+      this._element = target.closest(".element");
+      this._element.remove()
     }
   
     //функция лайка
@@ -60,7 +60,7 @@ export default class Card {
         this._setEventListeners();
         this._element.querySelector('.element__image').style.backgroundImage =  `url(${this._link})`;
         this._element.querySelector('.element__title').textContent = this._name;
-  
+        this._element.querySelector('.element__image').setAttribute("alt", `${this._name}`);
         return this._element;
     }
   }
