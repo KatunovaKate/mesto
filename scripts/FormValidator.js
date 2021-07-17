@@ -56,23 +56,17 @@ export default class FormValidator {
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         })
-        const inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
     
-    
-        inputList.forEach((inputElement) => {
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkValidity(formElement, inputElement);
-                this._changeButtonState(this._buttonElement, inputList);
+                this._changeButtonState();
             })
         })
-    
         this._changeButtonState();
     }
     
     enableValidation = () => {
-        const formList = Array.from(document.querySelectorAll(this._formSelector));
-        formList.forEach((formElement) => {
-            this._setIventListerners(formElement);
-        })
+        this._setIventListerners(this._formElement);
     }
 }

@@ -24,10 +24,8 @@ export default class Card {
     }
   
     //функция удаления карточки
-    _deleteCard(evt) {
-      const target = evt.target;
-      this._element = target.closest(".element");
-      this._element.remove()
+    _deleteCard() {
+      this._element.remove();
     }
   
     //функция лайка
@@ -58,9 +56,10 @@ export default class Card {
     renderCard() {
         this._element = this._getTemplate();
         this._setEventListeners();
-        this._element.querySelector('.element__image').style.backgroundImage =  `url(${this._link})`;
+        const elementImage = this._element.querySelector('.element__image');
+        elementImage.style.backgroundImage =  `url(${this._link})`;
         this._element.querySelector('.element__title').textContent = this._name;
-        this._element.querySelector('.element__image').setAttribute("alt", `${this._name}`);
+        elementImage.setAttribute("alt", `${this._name}`);
         return this._element;
     }
   }
