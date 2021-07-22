@@ -1,4 +1,4 @@
-import { config } from './utils.js'
+import { config } from '../utils/constants.js'
 
 //Принимать в конструктор объект настроек с классами формы;
 export default class FormValidator {
@@ -14,8 +14,7 @@ export default class FormValidator {
         this._inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = formElement.querySelector(this._submitButtonSelector);
         
-        this._idError = `${this._inputSelector}-error`;
-        this._errorElement = this._formElement.querySelector(this._idError);
+        this._errorElement = this._formElement.querySelector(`${this._inputSelector}-error`);
     }
 
     _hasInvalidInput = () => {
@@ -37,6 +36,7 @@ export default class FormValidator {
         this._errorElement.classList.add(this._errorClass);
         inputElement.classList.add(this._inputErrorClass);
     }
+    
     
     _hideError = (formElement, inputElement) => {
         this._errorElement.textContent = '';

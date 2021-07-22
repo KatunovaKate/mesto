@@ -1,39 +1,27 @@
 //Экземпляр класса Card создаётся для каждой карточки. Класс Card должен:
-import  { closePopup, openPopup, closeButtonShow, popupImage, popupName, popupShow } from './utils.js'
+import  { closeButtonShow, popupShow } from '../utils/constants.js'
+import Popup from './Popup.js';
 export default class Card {
-    //Принимать в конструктор ссылки на изображение и текст;
-    //Принимать в конструктор селектор для template-элемента с шаблоном разметки;
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
   
-    //Принимаем разметку для карточки
     _getTemplate() {
         const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
         return cardElement;
     }
-    
-    //функция открытия карточки
-    _openImagePopup() {
-      popupImage.src = this._link;
-      popupName.textContent = this._name;
-      popupImage.alt = this._name;
-      openPopup(popupShow);
-    }
-  
-    //функция удаления карточки
+
     _deleteCard() {
       this._element.remove();
     }
   
-    //функция лайка
     _likeToggle(evt) {
       evt.target.classList.toggle("element__like-button_active");
     }
   
-    //навешиваем слушатели
     _setEventListeners() {
       this._element.querySelector('.element__like-button').addEventListener('click', (evt) => {
         this._likeToggle(evt);
@@ -44,15 +32,11 @@ export default class Card {
       });
   
       this._element.querySelector('.element__image').addEventListener('click', () => {
-        this._openImagePopup();
+        this._handleCardClick();
       });
-  
-      closeButtonShow.addEventListener('click', () => {
-       closePopup(popupShow);
-      });
+
     }
   
-    //Рендер карточки
     renderCard() {
         this._element = this._getTemplate();
         this._setEventListeners();

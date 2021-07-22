@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="root">
@@ -13,7 +12,7 @@
   <main class="main">
     <section class="profile">
       <div class="profile__info">
-        <img src="./images/avatar.png" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
+        <img src="<%=require('./images/avatar.png')%>" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
         <div class="profile__user-info">
           <div class="profile__name-edit">
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
@@ -60,7 +59,7 @@
   <div class="popup popup_class_image-show">
     <figure class="popup__full-image">
     <button class="popup__close-button popup__close-button_class_image-show button button_type_m-opacity" type="button"></button>
-    <img class="popup__image" alt="practicum-made-me-write-here-something" src="./images/avatar.png">
+    <img class="popup__image" alt="practicum-made-me-write-here-something" src="">
     <figcaption class="popup__image-text"></figcaption>
     </figure>
   </div>
@@ -73,7 +72,6 @@
       <button type="button" class="element__like-button button button_type_l-opacity"></button>
     </div>
   </li>
-</template>
-  <script type="module" src="./scripts/index.js"></script>
+</template> 
 </body>
 </html>

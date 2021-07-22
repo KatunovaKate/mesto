@@ -22,32 +22,14 @@ export const closeButtonShow = document.querySelector(".popup__close-button_clas
 
 export const templateElement = document.querySelector(".template");
 export const container = document.querySelector(".elements__list");
+export const imageElement = document.querySelector(".element__image")
+export const imageSubtitleElement = document.querySelector(".element__title")
 export const deleteButton = document.querySelector(".element__delete-button");
 
 export const popupImage = document.querySelector('.popup__image');
 export const popupName = document.querySelector('.popup__image-text');
 
 export const Escape = "Escape";
-
-
-export const closeEsc = (evt) => { 
-    if (evt.key === Escape) { 
-      const popupElement = document.querySelector('.popup_opened');
-      closePopup(popupElement);
-    } 
-  } 
-
-export function openPopup(popupElement) {
-    popupElement.classList.add("popup_opened");
-    document.addEventListener("keydown", closeEsc);
-  }
-
-  
-export function closePopup(popupElement) {
-    popupElement.classList.remove("popup_opened");
-    document.removeEventListener("keydown", closeEsc);
-  }
-
 
 export const config = {
     formSelector: '.popup__form',
