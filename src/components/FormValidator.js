@@ -21,7 +21,7 @@ export default class FormValidator {
         return this._inputList.some(inputElement => !inputElement.validity.valid);
     }
     
-    _changeButtonState = () => {
+    changeButtonState = () => {
         if (this._hasInvalidInput()) {
             this._buttonElement.classList.add(this._inactiveButtonClass);
             this._buttonElement.setAttribute("disabled", "disabled");
@@ -53,17 +53,17 @@ export default class FormValidator {
     }
     
     _setIventListerners = (formElement) => {
-        formElement.addEventListener('submit', (evt) => {
+        this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         })
     
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkValidity(formElement, inputElement);
-                this._changeButtonState();
+                this.changeButtonState();
             })
         })
-        this._changeButtonState();
+        this.changeButtonState();
     }
     
     enableValidation = () => {

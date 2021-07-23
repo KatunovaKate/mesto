@@ -1,6 +1,4 @@
 //Экземпляр класса Card создаётся для каждой карточки. Класс Card должен:
-import  { closeButtonShow, popupShow } from '../utils/constants.js'
-import Popup from './Popup.js';
 export default class Card {
     constructor(data, cardSelector, handleCardClick) {
         this._name = data.name;
