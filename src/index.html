@@ -12,10 +12,13 @@
   <main class="main">
     <section class="profile">
       <div class="profile__info">
-        <img src="<%=require('./images/avatar.png')%>" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
+        <div class="profile__avatar-common">
+          <img src="<%=require('./images/avatar.png')%>" class="profile__avatar" alt="Фотография Жак-Ив Кусто">
+          <button type="button" class="profile__edit-photo button"></button>
+        </div>
         <div class="profile__user-info">
           <div class="profile__name-edit">
-            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+            <h1 class="profile__username">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button button button_type_m-opacity"></button>
           </div>
           <p class="profile__user-description">Исследователь океана</p>
@@ -35,7 +38,7 @@
       <button class="popup__close-button popup__close-button_class_edit button button_type_m-opacity" type="button"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
       <form class="popup__form popup__form_class_edit" method="POST" name="edit-profile" novalidate>
-        <input placeholder="Имя" class="popup__form-name popup__input popup__form-name_class_edit" type="text" name="user-name" id="user-name" required minlength="2" maxlength="40">
+        <input placeholder="Имя" class="popup__form-name popup__input popup__form-name_class_edit" type="text" name="username" id="username" required minlength="2" maxlength="40">
         <span class="popup__input-error user-name-error" id="user-name-error"></span> 
         <input placeholder="О себе" class="popup__form-description popup__input popup__form-description_class_edit" type="text" name="description" id="description" required minlength="2" maxlength="200">
         <span class="popup__input-error description-error" id="description-error"></span> 
@@ -63,13 +66,35 @@
     <figcaption class="popup__image-text"></figcaption>
     </figure>
   </div>
+  <div class="popup popup_class_remove">
+    <div class="popup__container popup__container_class_remove">
+      <button class="popup__close-button popup__close-button_class_remove button button_type_m-opacity" type="button"></button>
+      <h3 class="popup__title">Вы уверены?</h3>
+      <form class="popup__form popup__form_class_remove" method="POST" name="remove-image" novalidate> 
+        <button class="popup__save-button popup__save-button_class_remove button button_type_s-opacity" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_class_change-photo">
+    <div class="popup__container popup__container_class_change-photo">
+      <button class="popup__close-button popup__close-button_class_change-photo button button_type_m-opacity" type="button"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="popup__form popup__form_class_change-photo" method="POST" name="change-photo" novalidate>
+        <input placeholder="Ссылка на картинку" class="popup__form-description popup__input popup__form-description_change-photo" name="image" id="image" required type="url">
+        <span class="popup__input-error image-error" id="image-error"></span> 
+        <button class="popup__save-button popup__save-button_change-photo button button_type_s-opacity" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
   <template class="template">
   <li class="element">
     <div class="element__image"></div>
     <button type="button" class="element__delete-button button button_type_l-opacity"></button>
     <div class="element__info">
       <h2 class="element__title"></h2>
-      <button type="button" class="element__like-button button button_type_l-opacity"></button>
+      <div><button type="button" class="element__like-button button button_type_l-opacity"></button>
+      <div class="element__number-of-likes"></div>
+      </div>
     </div>
   </li>
 </template> 

@@ -6,8 +6,12 @@ export const closeButtonEdit = document.querySelector(".popup__close-button_clas
 export const formUserName = document.querySelector(".popup__form-name_class_edit");
 export const formDescription = document.querySelector(".popup__form-description_class_edit");
 
-export const userName = document.querySelector(".profile__user-name");
+export const userName = document.querySelector(".profile__username");
 export const description = document.querySelector(".profile__user-description");
+export const userAvatar = document.querySelector(".profile__avatar");
+
+export const saveButtonAvatar = document.querySelector(".popup__save-button_change-photo");
+
 
 export const popupAdd = document.querySelector(".popup_class_add");
 export const addSaveButton = document.querySelector('.popup__save-button_class_add');
@@ -19,6 +23,13 @@ export const formLink = document.querySelector(".popup__form-description_class_a
 
 export const popupShow = document.querySelector(".popup_class_image-show");
 export const closeButtonShow = document.querySelector(".popup__close-button_class_image-show");
+
+export const popupFormProfile = document.querySelector(".popup__form_class_change-photo");
+export const popupProfileCloseButton = document.querySelector(".popup__close-button_class_change-photo");
+export const popupProfileSaveButton = document.querySelector(".popup__save-button_change-photo");
+export const popupProfileButton = document.querySelector(".profile__edit-photo");
+
+export const deleteImage = document.querySelector(".popup__save-button_class_remove");
 
 export const templateElement = document.querySelector(".template");
 export const container = document.querySelector(".elements__list");
