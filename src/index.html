@@ -62,7 +62,7 @@
   <div class="popup popup_class_image-show">
     <figure class="popup__full-image">
     <button class="popup__close-button popup__close-button_class_image-show button button_type_m-opacity" type="button"></button>
-    <img class="popup__image" alt="practicum-made-me-write-here-something" src="">
+    <img class="popup__image" alt="practicum-made-me-write-here-something" src="<%=require('./images/avatar.png')%>">
     <figcaption class="popup__image-text"></figcaption>
     </figure>
   </div>
@@ -80,8 +80,8 @@
       <button class="popup__close-button popup__close-button_class_change-photo button button_type_m-opacity" type="button"></button>
       <h3 class="popup__title">Обновить аватар</h3>
       <form class="popup__form popup__form_class_change-photo" method="POST" name="change-photo" novalidate>
-        <input placeholder="Ссылка на картинку" class="popup__form-description popup__input popup__form-description_change-photo" name="image" id="image" required type="url">
-        <span class="popup__input-error image-error" id="image-error"></span> 
+        <input placeholder="Ссылка на картинку" class="popup__form-description popup__input popup__form-description_change-photo" name="photo" id="photo" required type="url">
+        <span class="popup__input-error image-error" id="photo-error"></span> 
         <button class="popup__save-button popup__save-button_change-photo button button_type_s-opacity" type="submit">Создать</button>
       </form>
     </div>
