@@ -6,7 +6,7 @@ import PopupWithForm from '../components/PopupWithForm.js'
 import PopupWithImage from '../components/PopupWithImage.js'
 import UserInfo from '../components/UserInfo.js'
 import Api from '../components/API.js'
-import { formPopupEdit, editButton, formUserName, formDescription, closeButtonEdit,
+import { formPopupEdit, editButton, formUserName, formDescription, saveButtonEdit,
          addSaveButton, addForm, addButton, formImageTitle, formLink, saveButtonAvatar,
          popupFormProfile, popupProfileButton, userAvatar, userName, description,
          container, config} from '../utils/constants.js'
@@ -27,10 +27,10 @@ const changeProfile = new PopupWithForm({
   submitForm: (data) => {
     saveButtonAvatar.textContent = 'Сохранение...'
     api.setAvatar({
-      avatar: data.image,
+      avatar: data.photo,
     })
       .then((data) => {
-        userAvatar.src =  `${data.avatar}`
+        userAvatar.src =  `${data.photo}`
       }).finally(() => {
         saveButtonAvatar.textContent = 'Сохранить'
       })
@@ -63,7 +63,8 @@ const infoProfile = new UserInfo('.profile__username', '.profile__user-descripti
 const formProfile = new PopupWithForm({
   popupSelector: '.popup_class_edit',
   submitForm: (data) => {
-    closeButtonEdit.textContent = 'Сохранение...'
+   
+    saveButtonEdit.textContent = 'Сохранение...'
     api.setUserInfo({
       name: data.username,
       about: data.description
@@ -75,7 +76,8 @@ const formProfile = new PopupWithForm({
         })
         formProfile.closePopup();
       }).finally(() => {
-        closeButtonEdit.textContent = 'Сохранить'
+        saveButtonEdit.textContent = 'Сохранить'
+        saveButtonEdit.classList.add('popup__save-button_type_disable');
         })
   }
 });

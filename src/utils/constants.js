@@ -2,7 +2,7 @@ export const popups = Array.from(document.querySelectorAll(".popup"));
 export const popupEdit = document.querySelector(".popup_class_edit");
 export const formPopupEdit = document.querySelector(".popup__form_class_edit");
 export const editButton = document.querySelector(".profile__edit-button");
-export const closeButtonEdit = document.querySelector(".popup__close-button_class_edit");
+export const saveButtonEdit = document.querySelector(".popup__save-button_class_edit");
 export const formUserName = document.querySelector(".popup__form-name_class_edit");
 export const formDescription = document.querySelector(".popup__form-description_class_edit");
 
