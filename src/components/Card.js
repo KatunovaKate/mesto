@@ -59,7 +59,6 @@ export default class Card {
     }
     
     _numberOfLikes = (likes) => {
-       console.log(likes)
        this._element.querySelector('.element__number-of-likes').textContent = likes.length;
     }
 

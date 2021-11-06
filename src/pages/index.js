@@ -30,7 +30,7 @@ const changeProfile = new PopupWithForm({
       avatar: data.photo,
     })
       .then((data) => {
-        userAvatar.src =  `${data.photo}`
+        userAvatar.src =  `${data.avatar}`
       }).finally(() => {
         saveButtonAvatar.textContent = 'Сохранить'
       })
@@ -145,7 +145,6 @@ api.getCards().then(data => {
           name: formImageTitle.value,
           link: formLink.value
         }).then((data) => {
-          console.log(data);
           renderElements.setItem(createCard(data));
         })
         
