@@ -1,17 +1,16 @@
 //Экземпляр класса Card создаётся для каждой карточки. Класс Card должен:
 export default class Card {
-    constructor(item, cardSelector, handleCardClick, deletePopup, handleCardLike, api, myId) {
-        this._name = item.name;
-        this._link = item.link;
-        this._likes = item.likes;
+    constructor(item, cardSelector, handleCardClick, deletePopup, handleCardLike, myId) {
+        this._item = item;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
         this._deletePopup = deletePopup;
         this._handleCardLike = handleCardLike;
-        this._api = api;
         this._myId = myId;
         this._cardElement = document.querySelector(this._cardSelector);
-        this._likeButton = this._cardElement.querySelector('.element__like-button');
+        this._element = this._getTemplate();
+        this._likeButton = this._element.querySelector('.element__like-button');
+        this._likeNumber = this._element.querySelector('.element__number-of-likes');
     }
 
     _getTemplate() {
@@ -19,15 +18,13 @@ export default class Card {
         return cardElement;
     }
 
-
-    setLike = (_id) => {
-  //    this._likes.length = `${this._likes.length}`
-      this._element.querySelector('.element__number-of-likes').textContent = this._likes.length + 1;
+    setLike = (_id, likes) => {
+      this._element.querySelector('.element__number-of-likes').textContent = likes.length + 1;
       this._element.querySelector('.element__like-button').classList.add("element__like-button_active");
     }
 
-    deleteLike = (_id) => {
-      this._element.querySelector('.element__number-of-likes').textContent = `${this._likes.length}` - 1;
+    deleteLike = (_id, likes) => {
+      this._element.querySelector('.element__number-of-likes').textContent = `${likes.length}` - 1;
       this._element.querySelector('.element__like-button').classList.remove("element__like-button_active");
     }
 
@@ -41,25 +38,23 @@ export default class Card {
       });
 
       this._element.querySelector('.element__delete-button').addEventListener('click', () => {
-        this._deletePopup();
+        this._deletePopup(this._item);
       });
 
     }
 
-    delClickHandler = (_id) => {
-      this._api.deleteTask(_id).then(() => {
-        this._element.remove();
-      }).catch((err) => console.log(err));
+    delClickHandler = () => {
+       this._element.remove();
     }
 
     _removeDeleteButton = (_id) => {
-     if (_id != this._myId) {
+     if (_id !== this._myId) {
        this._element.querySelector('.element__delete-button').classList.add('element__delete-button_remove');
      }
     }
     
     _numberOfLikes = (likes) => {
-       this._element.querySelector('.element__number-of-likes').textContent = likes.length;
+      this._element.querySelector('.element__number-of-likes').textContent = likes.length;
     }
 
     _likeToggle = (likes) => {
@@ -68,16 +63,17 @@ export default class Card {
        }
     }
 
-    renderCard(_id, likes) {
+
+    renderCard(_id, likes, name, link) {
         this._element = this._getTemplate();
         this._removeDeleteButton(_id);
         this._numberOfLikes(likes);
         this._likeToggle(likes)
         this._setEventListeners();
         const elementImage = this._element.querySelector('.element__image');
-        elementImage.style.backgroundImage =  `url(${this._link})`;
-        this._element.querySelector('.element__title').textContent = this._name;
-        elementImage.setAttribute("alt", `${this._name}`);
+        elementImage.style.backgroundImage =  `url(${link})`;
+        this._element.querySelector('.element__title').textContent = name;
+        elementImage.setAttribute("alt", `${name}`);
         return this._element;
 
     }

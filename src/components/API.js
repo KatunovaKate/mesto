@@ -6,18 +6,19 @@ export default class Api {
         this.name = config.name;
         this.avatar = config.avatar;
     }
+    
+    _checkStatus(res) {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
 
-    //получить объект информацией с сервера
     getCards() {
         return fetch(this._url + 'cards', {
             method: 'GET',
             headers: this._headers,
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     //получение имени и статуса
@@ -25,12 +26,7 @@ export default class Api {
         return fetch(this._url + 'users/me', {
             method: 'GET',
             headers: this._headers,
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     //переписывание уже имеющихся данных = имя и статус пользователя
@@ -42,12 +38,7 @@ export default class Api {
                 name,
                 about
               })
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     setAvatar({avatar}) {
@@ -57,12 +48,7 @@ export default class Api {
             body: JSON.stringify({
                 avatar
               })
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     //добавление карточки на сервер
@@ -71,24 +57,14 @@ export default class Api {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify(data),
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     deleteTask(_id) {
         return fetch(`${this._url}cards/${_id}`, {
             method: "DELETE",
             headers: this._headers,
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     setLike(_id) {
@@ -96,23 +72,13 @@ export default class Api {
             method: 'PUT',
             headers: this._headers,
             body: JSON.stringify({_id}),
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 
     deletelike(_id) {
         return fetch(`${this._url}cards/likes/${_id}`, {
             method: "DELETE",
             headers: this._headers,
-        }).then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }).catch((err) => console.log(err))
+        }).then(res => this._checkStatus(res))
     }
 }

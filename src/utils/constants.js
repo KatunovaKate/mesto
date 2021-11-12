@@ -42,6 +42,12 @@ export const popupName = document.querySelector('.popup__image-text');
 
 export const Escape = "Escape";
 
+export function renderLoading() {
+  saveButtonAvatar.textContent = 'Сохранение...'
+  saveButtonEdit.textContent = 'Сохранение...' 
+  addSaveButton.textContent = 'Создание...' 
+}
+
 export const config = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',

@@ -20,6 +20,10 @@ export default class FormValidator {
     _hasInvalidInput = () => {
         return this._inputList.some(inputElement => !inputElement.validity.valid);
     }
+
+    disabledButton = () => {
+        this._buttonElement.classList.add('popup__save-button_type_disable');
+    }
     
     changeButtonState = () => {
         if (this._hasInvalidInput()) {
